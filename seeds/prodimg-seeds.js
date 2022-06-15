@@ -215,6 +215,6 @@ const prodImgData = [
   },
 ];
 
-const seedProdImg = () => Tag.bulkCreate(prodImgData);
+const seedProdImg = () => ProdImg.bulkCreate(prodImgData);
 
 module.exports = seedProdImg;

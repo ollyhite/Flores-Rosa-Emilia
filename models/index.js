@@ -15,12 +15,10 @@ Category.hasMany(Product, {
 
 Product.belongsToMany(Img, {
   through: ProdImg,
-  foreignKey: "product_id",
 });
 
-Img.belongTo(Product, {
+Img.belongsToMany(Product, {
   through: ProdImg,
-  foreignKey: "img_id",
 });
 
 module.exports = { Product, Category, Img, ProdImg };
