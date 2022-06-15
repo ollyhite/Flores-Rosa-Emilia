@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Rosa Emlia</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="/images/flores_rosa_emilia_logo.svg" alt="">
+    </header>
+    <nav class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <a href="/">Home</a>
+            <a href="/bouquets">Bouquets</a>
+            <a href="/arrangement">Arrangement</a>
+            <a href="/boxed">Boxed</a>
+            <a href="/extras">Extras</a>
+        </div>
+        <div>
+            <a href=""><img src="/images/cart_icon.svg" alt=""></a>
+            {{#if loggedIn}}
+                <button id="logout" class="btn-no-style"><img src="/images/logout.svg" alt=""></button>
+                {{else}}
+                <a href="/login">Login</a>
+            {{/if}}
+        </div>
+    </nav>
+    <main>
+        <div>
+        {{{body}}}
+        </div>
+    </main>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
