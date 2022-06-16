@@ -20,7 +20,7 @@ Reviews.init(
         max: 5,
       },
     },
-    revew_title: {
+    review_title: {
       type: DataTypes.STRING,
     },
     review_text: {
@@ -49,3 +49,5 @@ Reviews.init(
     modelName: "reviews",
   }
 );
+
+module.exports = Reviews;
