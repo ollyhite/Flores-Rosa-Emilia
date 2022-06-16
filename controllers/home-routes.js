@@ -1,53 +1,57 @@
-const router = require('express').Router();
-const { Category, Product } = require('../models');
-
+const router = require("express").Router();
+const { Category, Product, ProdImg, Img } = require("../models");
 
 // GET homepage
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    res.render('homepage', {
+    res.render("homepage", {});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/bouquets", async (req, res) => {
+  try {
+    const dbBouquetData = await Category.findByPk(1, {
+      include: [
+        {
+          model: Product,
+          attributes: ["id", "product_name", "product_desc", "price"],
+        },
+      ],
     });
+
+    const y = [];
+    for (let element of dbBouquetData.products) {
+      const newy = await element.getImgs();
+      // console.log(newy);
+      // console.log(newy[0].img_path);
+      let z = newy.map((element) => element.img_path);
+      y.push({
+        product_id: element.id,
+        img_path: z,
+      });
+    }
+    console.log(y);
+    res.json(y);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/Bouquets', async (req, res) => {
+router.get("/arrangements", async (req, res) => {
   try {
-    const dbBouquetData = await Category.findByPk(req.params.id, {
-      include: [{
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'product_desc',
-          'price',
-        ],
-      }],
-    })
-  
-    const category = dbBouquetData.get({ plain: true });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+    const dbArrangementData = await Category.findByPk(2, {
+      include: [
+        {
+          model: Product,
+          attributes: ["id", "product_name", "product_desc", "price"],
+        },
+      ],
+    });
 
-router.get('/Arrangement', async (req, res) => {
-  try {
-    const dbArrangementData = await Category.findByPk(req.params.id, {
-      include: [{
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'product_desc',
-          'price',
-        ],
-      }],
-    })
-  
     const category = dbArrangementData.get({ plain: true });
   } catch (err) {
     console.log(err);
@@ -55,20 +59,17 @@ router.get('/Arrangement', async (req, res) => {
   }
 });
 
-router.get('/boxed', async (req, res) => {
+router.get("/boxes", async (req, res) => {
   try {
-    const dbBoxedData = await Category.findByPk(req.params.id, {
-      include: [{
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'product_desc',
-          'price',
-        ],
-      }],
-    })
-  
+    const dbBoxedData = await Category.findByPk(3, {
+      include: [
+        {
+          model: Product,
+          attributes: ["id", "product_name", "product_desc", "price"],
+        },
+      ],
+    });
+
     const category = dbBoxedData.get({ plain: true });
   } catch (err) {
     console.log(err);
@@ -76,20 +77,17 @@ router.get('/boxed', async (req, res) => {
   }
 });
 
-router.get('/extras', async (req, res) => {
+router.get("/extras", async (req, res) => {
   try {
-    const dbExtrasData = await Category.findByPk(req.params.id, {
-      include: [{
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'product_desc',
-          'price',
-        ],
-      }],
-    })
-  
+    const dbExtrasData = await Category.findByPk(4, {
+      include: [
+        {
+          model: Product,
+          attributes: ["id", "product_name", "product_desc", "price"],
+        },
+      ],
+    });
+
     const category = dbExtrasData.get({ plain: true });
   } catch (err) {
     console.log(err);
@@ -97,10 +95,10 @@ router.get('/extras', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
+  res.redirect("/");
+  return;
   // }
   // res.render('login');
 });

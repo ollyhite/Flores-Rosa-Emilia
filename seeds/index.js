@@ -14,14 +14,14 @@ const seedAll = async () => {
   await seedCategories();
   console.log("\n ~~~~~~~ CATEGORIES SEEDED ~~~~~~~~\n");
 
-  await seedImg();
-  console.log("\n ~~~~~~~ PRODUCTS SEEDED ~~~~~~~~\n");
-
   await seedProducts();
   console.log("\n ~~~~~~~ PRODUCTS SEEDED ~~~~~~~~\n");
 
-  await seedProdImg();
-  console.log("\n ~~~~~~~ PRODUCT IMAGES SEEDED ~~~~~~~~\n");
+  await seedImg();
+  console.log("\n ~~~~~~~ PRODUCTS SEEDED ~~~~~~~~\n");
+
+  // await seedProdImg();
+  // console.log("\n ~~~~~~~ PRODUCT IMAGES SEEDED ~~~~~~~~\n");
 
   await seedUser();
   console.log("\n ~~~~~~~ USERS SEEDED ~~~~~~~~\n");
