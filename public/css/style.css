@@ -5,7 +5,7 @@
     --tertiary:#E0BBE4;
     --quatrinary: #e8c4b7;
     --light: #ffffff;
-    --dark: #000000;
+    --dark: #4B4B4D;
     --error: rgb(228, 46, 1);
     --border-radius: 0.5rem;
 }
@@ -17,6 +17,8 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/* homepage css */
 
 header{
     width: 100%;
@@ -72,6 +74,7 @@ main{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     background-position: top;
     background-color: var(--dark);
     opacity: 0.8;
@@ -110,7 +113,6 @@ button:hover {
 
 .contact{
     width: 100vw;
-    height: 20vh;
     background-color: var(--quatrinary);
 }
 
@@ -126,3 +128,49 @@ button:hover {
 .icon.social{
     width: 2rem;
 }
+
+.icon.social:hover {
+    filter: brightness(0) saturate(100%) invert(87%) sepia(75%) saturate(673%) hue-rotate(277deg) brightness(89%) contrast(82%);
+}
+/* cart show number css */
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: var(--error);
+    color: var(--light);
+    border-radius:50% ;
+    padding: 5px 8px;
+    vertical-align: top;
+    margin-left: -10px;
+    margin-top: -5px;
+    z-index: 1;
+}
+/* cart show number css end here */
+
+.lan-switch{
+    top: 2em;
+    right: 2em;
+}
+
+.lan-switch button{
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.lan-switch button:hover {
+    color: var(--quatrinary);
+}
+
+/* homepage end here */
