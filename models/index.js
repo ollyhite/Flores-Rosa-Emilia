@@ -2,7 +2,7 @@ const { PerformanceNodeTiming } = require("perf_hooks");
 const Category = require("./Category");
 const Product = require("./Product");
 const Img = require("./Img");
-const ProdImg = require("./ProdImg");
+// const ProdImg = require("./ProdImg");
 const User = require("./User");
 const Reviews = require("./Reviews");
 
@@ -15,13 +15,15 @@ Category.hasMany(Product, {
   onDelete: "CASCADE",
 });
 
-Product.belongsToMany(Img, {
-  through: ProdImg,
-});
+// Product.hasMany(Img, {
+//   foreignKey: "img_id",
+// });
 
-Img.belongsToMany(Product, {
-  through: ProdImg,
-});
+// Img.belongsTo(Product, {
+//   foreignKey: "product_id",
+// });
+Product.hasMany(Img);
+Img.belongsTo(Product);
 
 User.hasMany(Reviews, {
   foreignKey: "user_id",
@@ -41,4 +43,4 @@ Reviews.belongsTo(Product, {
   foreignKey: "Product_id",
 });
 
-module.exports = { Product, Category, Img, ProdImg, User, Reviews };
+module.exports = { Product, Category, Img, User, Reviews };
