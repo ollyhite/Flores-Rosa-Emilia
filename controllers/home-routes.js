@@ -30,6 +30,9 @@ router.get("/bouquets", async (req, res) => {
       let z = newy.map((element) => element.img_path);
       y.push({
         product_id: element.id,
+        product_name: element.product_name,
+        product_desc: element.product_desc,
+        price: element.price,
         img_path: z,
       });
     }
