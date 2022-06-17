@@ -5,27 +5,26 @@ const { Category, Product, ProdImg, Img } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const bdImgData = await Img.findAll();
-    const imgArry = bdImgData.map((img) =>
-      img.get({ plain: true })
-    );
+    const imgArry = bdImgData.map((img) => img.get({ plain: true }));
     // console.log({imgArry});
     // console.log("imgArry.length",imgArry.length);
-    const getRandomInt =(max) => {
-     return Math.ceil(Math.random() * max);}
-    const idArry=[];
+    const getRandomInt = (max) => {
+      return Math.ceil(Math.random() * max);
+    };
+    const idArry = [];
     for (let i = 0; i < 6; i++) {
       const randomId = getRandomInt(imgArry.length);
       idArry.push(randomId);
-    }    
-    console.log({idArry});
+    }
+    console.log({ idArry });
     const sameIdArr = imgArry.filter(function (o1) {
       return idArry.some(function (o2) {
-          return o1.id === o2; // return the ones with equal id
-        });
+        return o1.id === o2; // return the ones with equal id
+      });
     });
-    const randomImgArry = sameIdArr.map((item)=>item.img_path)
+    const randomImgArry = sameIdArr.map((item) => item.img_path);
     console.log(randomImgArry);
-    res.render("homepage", {randomImgArry});
+    res.render("homepage", { randomImgArry });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -58,7 +57,7 @@ router.get("/bouquets", async (req, res) => {
       });
     }
     console.log(bouquets);
-    res.render('bouquets', {
+    res.render("bouquets", {
       bouquets,
       loggedIn: req.session.loggedIn,
     });
@@ -79,7 +78,25 @@ router.get("/arrangements", async (req, res) => {
       ],
     });
 
-    const category = dbArrangementData.get({ plain: true });
+    const arrangements = [];
+    for (let element of dbArrangementData.products) {
+      const newy = await element.getImgs();
+      // console.log(newy);
+      // console.log(newy[0].img_path);
+      let z = newy.map((element) => element.img_path);
+      arrangements.push({
+        product_id: element.id,
+        product_name: element.product_name,
+        product_desc: element.product_desc,
+        price: element.price,
+        img_path: z,
+      });
+    }
+    console.log(arrangements);
+    res.render("arrangements", {
+      arrangements,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -97,7 +114,25 @@ router.get("/boxes", async (req, res) => {
       ],
     });
 
-    const category = dbBoxedData.get({ plain: true });
+    const boxes = [];
+    for (let element of dbBoxedData.products) {
+      const newy = await element.getImgs();
+      // console.log(newy);
+      // console.log(newy[0].img_path);
+      let z = newy.map((element) => element.img_path);
+      boxes.push({
+        product_id: element.id,
+        product_name: element.product_name,
+        product_desc: element.product_desc,
+        price: element.price,
+        img_path: z,
+      });
+    }
+    console.log(boxes);
+    res.render("boxes", {
+      boxes,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -115,31 +150,49 @@ router.get("/extras", async (req, res) => {
       ],
     });
 
-    const category = dbExtrasData.get({ plain: true });
+    const extras = [];
+    for (let element of dbExtrasData.products) {
+      const newy = await element.getImgs();
+      // console.log(newy);
+      // console.log(newy[0].img_path);
+      let z = newy.map((element) => element.img_path);
+      extras.push({
+        product_id: element.id,
+        product_name: element.product_name,
+        product_desc: element.product_desc,
+        price: element.price,
+        img_path: z,
+      });
+    }
+    console.log(extras);
+    res.render("extras", {
+      extras,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/product/:id", async (req, res) =>{
+router.get("/product/:id", async (req, res) => {
   try {
-    const product = await Product.findByPk(req.params.id,{
-      include:[
+    const product = await Product.findByPk(req.params.id, {
+      include: [
         {
           model: Img,
           attributes: ["img_path"],
-        }
-      ]
-    })
-    res.render('product', {
-      product:product.get({plain: true}),
+        },
+      ],
+    });
+    res.render("product", {
+      product: product.get({ plain: true }),
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 router.get("/login", (req, res) => {
   // if (req.session.loggedIn) {
