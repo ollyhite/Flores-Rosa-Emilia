@@ -16,14 +16,14 @@ router.get("/", async (req, res) => {
       const randomId = getRandomInt(imgArry.length);
       idArry.push(randomId);
     }
-    console.log({ idArry });
+    // console.log({ idArry });
     const sameIdArr = imgArry.filter(function (o1) {
       return idArry.some(function (o2) {
         return o1.id === o2; // return the ones with equal id
       });
     });
     const randomImgArry = sameIdArr.map((item) => item.img_path);
-    console.log(randomImgArry);
+    // console.log(randomImgArry);
     res.render("homepage", { randomImgArry });
   } catch (err) {
     console.log(err);
@@ -56,7 +56,7 @@ router.get("/bouquets", async (req, res) => {
         img_path: z,
       });
     }
-    console.log(bouquets);
+    // console.log(bouquets);
     res.render("bouquets", {
       bouquets,
       loggedIn: req.session.loggedIn,
@@ -92,7 +92,7 @@ router.get("/arrangements", async (req, res) => {
         img_path: z,
       });
     }
-    console.log(arrangements);
+    // console.log(arrangements);
     res.render("arrangements", {
       arrangements,
       loggedIn: req.session.loggedIn,
@@ -128,7 +128,7 @@ router.get("/boxes", async (req, res) => {
         img_path: z,
       });
     }
-    console.log(boxes);
+    // console.log(boxes);
     res.render("boxes", {
       boxes,
       loggedIn: req.session.loggedIn,
@@ -164,7 +164,7 @@ router.get("/extras", async (req, res) => {
         img_path: z,
       });
     }
-    console.log(extras);
+    // console.log(extras);
     res.render("extras", {
       extras,
       loggedIn: req.session.loggedIn,
