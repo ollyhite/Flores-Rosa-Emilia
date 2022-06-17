@@ -51,7 +51,7 @@ const imgData = [
   }, // 12
   {
     img_path: "HSBoxWBalloon.jpeg",
-    product_id: 21,
+    product_id: 20,
   }, // 13
   {
     img_path: "HSBoxWYORoses.jpeg",
