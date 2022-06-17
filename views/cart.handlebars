@@ -1,0 +1,26 @@
+<div class="accordion" id="cart-items">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="Cart-header">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" onclick="removeLi" type="button">Remove</button>
+</div>
+  <li></li>
+    </h2>
+    <div id="heading{{product.product_id}}" class="accordion-collapse collapse show" aria-labelledby="heading{{product.product_id}}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="container">
+  <div class="row">
+    <div class="col">
+      {{img.img_path}}
+    </div>
+    <div class="col order-5">
+      {{product.product_name}}
+    </div>
+    <div class="col order-1">
+      {{product.price}}
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
