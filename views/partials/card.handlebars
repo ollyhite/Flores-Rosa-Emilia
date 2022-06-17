@@ -18,7 +18,7 @@
         </div>
       {{/each}}
     </div>
-    <button
+    {{!-- <button
       class="carousel-control-prev"
       type="button"
       data-bs-target="#carouselExampleControls"
@@ -35,12 +35,13 @@
     >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
-    </button>
+    </button> --}}
   </div>
   <div class="card-body">
     <h5 class="card-title"><a href="/product/{{product_id}}">{{product_name}}</a></h5>
       <p class="card-text">{{product_desc}}</p>
       <p class="card-text">{{price}}</p>
+      <input class="number-select" type="number">
       <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
   </div>          
 </div>

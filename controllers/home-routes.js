@@ -8,22 +8,23 @@ router.get("/", async (req, res) => {
     const imgArry = bdImgData.map((img) => img.get({ plain: true }));
     // console.log({imgArry});
     // console.log("imgArry.length",imgArry.length);
-    const getRandomInt = (max) => {
-      return Math.ceil(Math.random() * max);
-    };
-    const idArry = [];
-    for (let i = 0; i < 6; i++) {
-      const randomId = getRandomInt(imgArry.length);
-      idArry.push(randomId);
+  
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
     }
-    console.log({ idArry });
-    const sameIdArr = imgArry.filter(function (o1) {
-      return idArry.some(function (o2) {
-        return o1.id === o2; // return the ones with equal id
-      });
-    });
-    const randomImgArry = sameIdArr.map((item) => item.img_path);
-    console.log(randomImgArry);
+
+    shuffleArray(imgArry);
+    // console.log(imgArry);
+    const randomImgArry =[];
+    for (let i = 0; i < 6; i++) {
+      const element = imgArry[i];
+      randomImgArry.push(element.img_path)
+    }
+    // console.log(randomImgArry);
+  
     res.render("homepage", { randomImgArry });
   } catch (err) {
     console.log(err);

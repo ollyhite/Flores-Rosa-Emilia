@@ -34,6 +34,10 @@ nav{
     height: 5rem;
 }
 
+nav .right{
+    width: 8vw;
+}
+
 .menu{
     width: 40%;
 }
@@ -111,6 +115,22 @@ button:hover {
     height: 100vh;
 }
 
+.home-gallery img{
+    width: 300px;
+    height: 300px;
+    object-fit:cover;
+    background-color: black;
+    filter: brightness(75%);
+    opacity: 0.6;
+}
+
+.home-gallery img:hover {
+    opacity: 1;
+    filter: brightness(100%);
+}
+.gallery-frame{
+    flex-wrap: wrap;
+}
 .contact{
     width: 100vw;
     background-color: var(--quatrinary);
@@ -206,3 +226,4 @@ button:hover {
     background-color: var(--dark);
 }
 /* card end here */
+

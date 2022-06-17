@@ -31,15 +31,15 @@
         <a href="/boxes">Boxes</a>
         <a href="/extras">Extras</a>
       </div>
-      <div>
-        <a href=""><img class="icon" src="/images/cart_icon.svg" alt="" />
+      <div class="right d-flex justify-content-around">
+        <a class="mr-5" href=""><img class="icon" src="/images/cart_icon.svg" alt="" />
           <span class="badge badge-warning" id="lblCartCount"> 5 </span>
         </a>
-        {{!-- {{#if loggedIn}}
-                <button id="logout" class="btn-no-style"><img class="icon" src="/images/logout.svg" alt=""></button>
-                {{else}}
-                <a href="/login"><img class="icon" src="/images/login.svg" alt=""></a>
-            {{/if}} --}}
+        {{#if loggedIn}}
+          <button id="logout" class="btn-no-style"><img class="icon" src="/images/logout_icon.svg" alt=""></button>
+        {{else}}
+          <a href="/login"><img class="icon" src="/images/login_icon.svg" alt=""></a>
+        {{/if}}
       </div>
     </nav>
     <main>
