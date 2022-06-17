@@ -177,12 +177,21 @@ button:hover {
 
 
 /* card start here */
+.bouquets-section{
+    flex-wrap: wrap;
+}
 .card {
     border: none;
     background-color: var(--tertiary);
     padding: 2rem;
     margin: 30px;
-    box-shadow: 7px 13px 9px -2px #404040;
+    box-shadow: 7px 13px 9px -2px #777474;
+}
+
+.carousel-item img{
+    /* width: 500px;
+        height: 500px; */
+        /* object-fit: cover; */
 }
 .card button:hover{
     background-color: transparent;

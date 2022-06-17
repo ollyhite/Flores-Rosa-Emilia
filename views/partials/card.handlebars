@@ -7,15 +7,14 @@
     <div class="carousel-inner">
       {{! <div class="carousel-item active">
       <img src="/images/HSBoxFRHeart.jpeg" class="d-block w-100" alt="...">
-      </div> }}
-      {{! remeber add js aobut add active in first one index }}
-      {{#each bouquets.imgsArray as |images|}}
-        <div class="carousel-item">
-          <img
-            src="/images/{{images.img_path}}"
-            class="d-block w-100"
-            alt="..."
-          />
+      </div> --}}
+      {{!-- remeber add js aobut add active in first one index --}}
+      
+      {{#each img_path as |image|}}
+        
+        <div {{#if image.[0]}}class="carousel-item active"{{else}}class="carousel-item"{{/if}}>
+          
+          <img src="/images/{{image}}" class="d-block w-100" alt="...">
         </div>
       {{/each}}
     </div>
@@ -39,9 +38,9 @@
     </button>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><a href="/bouquets/{{id}}">{{product_name}}</a></h5>
-    <p class="card-text">{{product_desc}}</p>
-    <p class="card-text">{{price}}</p>
-    <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
-  </div>
+    <h5 class="card-title"><a href="/product/{{product_id}}">{{product_name}}</a></h5>
+      <p class="card-text">{{product_desc}}</p>
+      <p class="card-text">{{price}}</p>
+      <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
+  </div>          
 </div>
