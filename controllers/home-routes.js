@@ -4,7 +4,28 @@ const { Category, Product, ProdImg, Img } = require("../models");
 // GET homepage
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage", {});
+    const bdImgData = await Img.findAll();
+    const imgArry = bdImgData.map((img) =>
+      img.get({ plain: true })
+    );
+    // console.log({imgArry});
+    // console.log("imgArry.length",imgArry.length);
+    const getRandomInt =(max) => {
+     return Math.ceil(Math.random() * max);}
+    const idArry=[];
+    for (let i = 0; i < 6; i++) {
+      const randomId = getRandomInt(imgArry.length);
+      idArry.push(randomId);
+    }    
+    console.log({idArry});
+    const sameIdArr = imgArry.filter(function (o1) {
+      return idArry.some(function (o2) {
+          return o1.id === o2; // return the ones with equal id
+        });
+    });
+    const randomImgArry = sameIdArr.map((item)=>item.img_path)
+    console.log(randomImgArry);
+    res.render("homepage", {randomImgArry});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -22,13 +43,13 @@ router.get("/bouquets", async (req, res) => {
       ],
     });
 
-    const y = [];
+    const bouquets = [];
     for (let element of dbBouquetData.products) {
       const newy = await element.getImgs();
       // console.log(newy);
       // console.log(newy[0].img_path);
       let z = newy.map((element) => element.img_path);
-      y.push({
+      bouquets.push({
         product_id: element.id,
         product_name: element.product_name,
         product_desc: element.product_desc,
@@ -36,8 +57,11 @@ router.get("/bouquets", async (req, res) => {
         img_path: z,
       });
     }
-    console.log(y);
-    res.json(y);
+    console.log(bouquets);
+    res.render('bouquets', {
+      bouquets,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -97,6 +121,25 @@ router.get("/extras", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/product/:id", async (req, res) =>{
+  try {
+    const product = await Product.findByPk(req.params.id,{
+      include:[
+        {
+          model: Img,
+          attributes: ["img_path"],
+        }
+      ]
+    })
+    res.render('product', {
+      product:product.get({plain: true}),
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.get("/login", (req, res) => {
   // if (req.session.loggedIn) {
