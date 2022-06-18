@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
     shuffleArray(imgArry);
     // console.log(imgArry);
     const randomImgArry = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
       randomImgArry.push(element.img_path);
     }

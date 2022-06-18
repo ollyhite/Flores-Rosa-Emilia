@@ -23,14 +23,14 @@
             </div>
             <div class="right d-flex flex-column w-25">
                 <h1 class="mb-5">{{product.product_name}}</h1>
-                <p class="mb-5">Price:{{product.price}}</p> 
-                <h5 class="">Amount want to add</h5>
-                <input class="number-select mb-5" type="number" id="quantity">
-                <button id="addcartbtn"href="#" class="addcart-btn btn btn-primary" data-a={{product.id}} data-b={{product.price}}>Add Cart</button> 
+                <p class="mb-5">{{translation.Price}}:{{product.price}}</p> 
+                <h5 class="">{{translation.Quantity}}</h5>
+                <input class="number-select mb-5" type="number">
+                <a href="#" class="addcart-btn btn btn-primary">{{translation.AddCart}}</a>
             </div>
         </div>
         <div class="bottom mt-5 px-5">
-            <h1>Description</h1>
+            <h1>{{translation.Description}}</h1>
             <p>{{product.product_desc}}</p>
         </div>
 

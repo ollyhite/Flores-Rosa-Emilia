@@ -17,6 +17,9 @@ body{
     margin: 0;
     padding: 0;
 }
+.warp{
+    flex-wrap: wrap;
+}
 
 /* homepage css */
 
@@ -148,10 +151,16 @@ button:hover {
 .icon.social{
     width: 2rem;
 }
-
-.icon.social:hover {
+.icon.social:hover{
+    cursor: pointer;
+}
+.icon.social.hoverC:active {
     filter: brightness(0) saturate(100%) invert(87%) sepia(75%) saturate(673%) hue-rotate(277deg) brightness(89%) contrast(82%);
 }
+.icon.social.hoverC:hover {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(1364%) hue-rotate(226deg) brightness(95%) contrast(92%);
+}
+
 /* cart show number css */
 .badge {
     padding-left: 9px;
