@@ -1,15 +1,10 @@
-<div class="card" style="width: 20rem;">
+<form class="card card-form" style="width: 20rem;">
   <div
     id="carouselExampleControls"
     class="carousel slide"
     data-bs-ride="carousel"
   >
     <div class="carousel-inner">
-      {{! <div class="carousel-item active">
-      <img src="/images/HSBoxFRHeart.jpeg" class="d-block w-100" alt="...">
-      </div> --}}
-      {{!-- remeber add js aobut add active in first one index --}}
-      
       {{#each img_path as |image|}}
         
         <div {{#if image.[0]}}class="carousel-item active"{{else}}class="carousel-item"{{/if}}>
@@ -18,31 +13,13 @@
         </div>
       {{/each}}
     </div>
-    {{!-- <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button> --}}
   </div>
   <div class="card-body">
     <h5 class="card-title"><a href="/product/{{product_id}}">{{product_name}}</a></h5>
       <p class="card-text">{{product_desc}}</p>
       <p class="card-text">${{price}} USD</p>
-      <input class="number-select mb-5" type="number">
-      {{!-- <a href="#" class="addcart-btn btn btn-primary">{{translation.AddCart}}</a> --}}
-      <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
+      <input class="number-select mb-5 form-control" type="number" min="0" value="1">
+      <button href="#" class="addcart-btn btn btn-primary" data-id="{{product_id}}" data-price="{{price}}" data-c="{{loggedIn}}"><img src="/images/addcart_icon.svg" alt=""></button>
   </div>          
-</div>
+</form>
+<script src="/js/card.js"></script>
