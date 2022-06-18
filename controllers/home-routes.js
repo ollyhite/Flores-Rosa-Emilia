@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     shuffleArray(imgArry);
     // console.log(imgArry);
     const randomImgArry =[];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
       randomImgArry.push(element.img_path)
     }
@@ -195,11 +195,11 @@ router.get("/product/:id", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  // if (req.session.loggedIn) {
+  if (req.session.loggedIn) {
   res.redirect("/");
   return;
-  // }
-  // res.render('login');
+  }
+  res.render('login');
 });
 
 module.exports = router;

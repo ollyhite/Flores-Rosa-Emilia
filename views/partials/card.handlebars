@@ -40,8 +40,9 @@
   <div class="card-body">
     <h5 class="card-title"><a href="/product/{{product_id}}">{{product_name}}</a></h5>
       <p class="card-text">{{product_desc}}</p>
-      <p class="card-text">{{price}}</p>
-      <input class="number-select" type="number">
+      <p class="card-text">${{price}} USD</p>
+      <input class="number-select mb-5" type="number">
+      {{!-- <a href="#" class="addcart-btn btn btn-primary">{{translation.AddCart}}</a> --}}
       <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
   </div>          
 </div>
