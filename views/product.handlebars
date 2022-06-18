@@ -25,7 +25,7 @@
                 <h1 class="mb-5">{{product.product_name}}</h1>
                 <p class="mb-5">{{translation.Price}}:{{product.price}}</p> 
                 <h5 class="">{{translation.Quantity}}</h5>
-                <input class="number-select mb-5 form-control" type="number" min="0" onchange="checkTextbox(this)" id="quantity">
+                <input class="number-select mb-5 form-control" type="number" min="0" onchange="checkTextbox(this)" id="quantity" value="0">
                 <a href="#" class="addcart-btn btn btn-primary" id="addcartbtn" data-a="{{product.id}}" data-b="{{product.price}}" data-c="{{userID}}">{{translation.AddCart}}</a>
             </div>
         </div>
@@ -33,6 +33,20 @@
             <h1>{{translation.Description}}</h1>
             <p>{{product.product_desc}}</p>
         </div>
+
+        <section class="reviews-section">
+            <div class="card">
+                <div class="card-header">
+                    Quote
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                    <p>A well-known quote, contained in a blockquote element.</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
 
 </div>
 <script src="/js/forCart.js"></script>

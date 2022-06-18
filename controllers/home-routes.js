@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
       randomImgArry.push(element.img_path);
     }
 
-    res.render("homepage", { randomImgArry });
+    res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in,});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
