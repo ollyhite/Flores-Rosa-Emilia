@@ -1,22 +1,37 @@
-<h1>{{product.product_name}}</h1>
-<p>{{product.product_desc}}</p>
-<p>{{product.price}}</p>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        {{#each product.imgs as |img|}}
-            
-            <div {{#if img.img_path.[0]}}class="carousel-item active"{{else}}class="carousel-item"{{/if}}>
-            
-            <img src="/images/{{img.img_path}}" class="d-block w-100" alt="...">
+<div class="container d-flex flex-column">
+        <div class="d-flex w-100 justify-content-around mt-5">
+            <div class="left d-flex flex-column w-50">
+                <div id="carouselExampleControls w-75" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {{#each product.imgs as |img|}}
+                            
+                            <div {{#if img.img_path.[0]}}class="carousel-item active"{{else}}class="carousel-item"{{/if}}>
+                            
+                            <img src="/images/{{img.img_path}}" class="d-block w-100" alt="...">
+                            </div>
+                        {{/each}}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-        {{/each}}
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+            <div class="right d-flex flex-column w-25">
+                <h1 class="mb-5">{{product.product_name}}</h1>
+                <p class="mb-5">{{translation.Price}}:{{product.price}}</p> 
+                <h5 class="">{{translation.Quantity}}</h5>
+                <input class="number-select mb-5" type="number">
+                <a href="#" class="addcart-btn btn btn-primary">{{translation.AddCart}}</a>
+            </div>
+        </div>
+        <div class="bottom mt-5 px-5">
+            <h1>{{translation.Description}}</h1>
+            <p>{{product.product_desc}}</p>
+        </div>
+
 </div>

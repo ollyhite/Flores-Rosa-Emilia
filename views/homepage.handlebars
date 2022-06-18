@@ -1,35 +1,44 @@
 <section class="main-block position-relative d-flex flex-column justify-content-center align-items-center">
     <div class="main-img"></div>
     <div class="main-text position-absolute d-flex flex-column justify-content-between align-items-center">
+<<<<<<< HEAD
         <h1>Flores Rosa Emilia</h1>
         <button>See More</button>
+=======
+        <h1>Flores Rosa Emlia</h1>
+        <button>{{translation.SeeMore}}</button>
+>>>>>>> 9862cc413b1d9e8a409b965da13dfad65f81230b
     </div>
 </section>
 <section class="about p-5">
-    <h2>About Flores Rosa Emlia</h2>
+    <h2>{{translation.About}} Flores Rosa Emlia</h2>
 </section>
 <section class="home-gallery p-5">
-    <h2>Gallery</h2>
+    <h2>{{translation.Gallery}}</h2>
     <div class="d-flex flex-column align-items-center">
-        <div class="d-flex align-items-center justify-content-around">
-            <img class="w-25" src="/images/{{randomImgArry.[0]}}" alt="">
-            <img class="w-25" src="/images/{{randomImgArry.[1]}}" alt="">
-            <img class="w-25" src="/images/{{randomImgArry.[2]}}" alt="">
+        <div class="d-flex align-items-center justify-content-around mb-4 warp">
+            <img class="m-4" src="/images/{{randomImgArry.[0]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[1]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[2]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[3]}}" alt="">
         </div>
-        <div class="d-flex align-items-center justify-content-around">
-            <img class="w-25" src="/images/{{randomImgArry.[3]}}" alt="">
-            <img class="w-25" src="/images/{{randomImgArry.[4]}}" alt="">
-            <img class="w-25" src="/images/{{randomImgArry.[5]}}" alt="">
+        <div class="d-flex align-items-center justify-content-around warp">
+            <img class="m-4" src="/images/{{randomImgArry.[4]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[5]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[6]}}" alt="">
+            <img class="m-4" src="/images/{{randomImgArry.[7]}}" alt="">
         </div>
     </div>
 </section>
 <section class="contact p-5">
-    <h2>Contact Us</h2>
-    <p class="mail px-5"><a href="mailto:floresrosaemlia@gmail.com">Send email to Us</a></p>
+    <h2>{{translation.ContactUs}}</h2>
+    <p class="mail px-5"><a href="mailto:floresrosaemlia@gmail.com">{{translation.SendEmailToUs}}</a></p>
     <div class="socialIcon-frame d-flex justify-content-center align-items-center">
-        <img class="icon social mx-4" src="/images/facebook.svg" alt="">
-        <img class="icon social mx-4" src="/images/whatsapp.svg" alt="">
-        <img class="icon social mx-4" src="/images/instagram.svg" alt="">
-        <img class="icon social mx-4" src="/images/twitter.svg" alt="">
+        <img class="icon social mx-4" id="facebook" src="/images/facebook.svg" alt="" onmouseover="hover(this);" onmouseout="unhover(this);">
+        <img class="icon social mx-4" id="whatsapp" src="/images/whatsapp.svg" alt="" onmouseover="hover(this);" onmouseout="unhover(this);">
+        <img class="icon social hoverC mx-4" src="/images/instagram.svg" alt="">
+        <img class="icon social hoverC mx-4" src="/images/twitter.svg" alt="">
     </div>
 </section>
+
+<script src="/js/homepage.js"></script>
