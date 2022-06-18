@@ -1,19 +1,17 @@
-const addcart = document.querySelector("#addcartbtn");
-const addQ = document.querySelector("#quantity");
-addcart.addEventListener("click", test1);
+const addcart = document.getElementById("addcartbtn");
+const numberSel = document.getElementById("quantity");
+const quantity = numberSel.value;
+const product_id = parseInt(addcart.dataset.a);
+const price = parseInt(addcart.dataset.b);
+const user_id = addcart.dataset.c;
+
+console.log(numberSel);
+
 function test1() {
-  const product_id = parseInt(addcart.dataset.a);
-  const price = parseInt(addcart.dataset.b);
+  console.log(user_id);
   console.log(product_id);
   console.log(price);
-  console.log(addQ);
+  console.log(quantity);
 }
 
-const response = fetch("/api/cart", {
-  method: "POST",
-  body: JSON.stringify((user_id, product_id, price, quantity)),
-  headers: { "Content-Type": application / json },
-});
-if (response.ok) {
-  console.log("Good!");
-} else console.log("Bad!");
+addcart.addEventListener("click", test1);
