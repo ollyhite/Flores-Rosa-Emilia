@@ -3,27 +3,33 @@ const { Category, Product, ProdImg, Img } = require("../models");
 
 // GET homepage
 router.get("/", async (req, res) => {
+  console.log(
+    "~~~~~~~~~~~~~~~~~~ " +
+      req.session.user_id +
+      " is the current user!" +
+      " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  );
   try {
     const bdImgData = await Img.findAll();
     const imgArry = bdImgData.map((img) => img.get({ plain: true }));
     // console.log({imgArry});
     // console.log("imgArry.length",imgArry.length);
-  
+
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
 
     shuffleArray(imgArry);
     // console.log(imgArry);
-    const randomImgArry =[];
+    const randomImgArry = [];
     for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
-      randomImgArry.push(element.img_path)
+      randomImgArry.push(element.img_path);
     }
-    
+
     res.render("homepage", { randomImgArry });
   } catch (err) {
     console.log(err);
@@ -59,7 +65,8 @@ router.get("/bouquets", async (req, res) => {
     // console.log(bouquets);
     res.render("bouquets", {
       bouquets,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -95,7 +102,8 @@ router.get("/arrangements", async (req, res) => {
     // console.log(arrangements);
     res.render("arrangements", {
       arrangements,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -131,7 +139,8 @@ router.get("/boxes", async (req, res) => {
     // console.log(boxes);
     res.render("boxes", {
       boxes,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -167,7 +176,8 @@ router.get("/extras", async (req, res) => {
     // console.log(extras);
     res.render("extras", {
       extras,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -187,7 +197,8 @@ router.get("/product/:id", async (req, res) => {
     });
     res.render("product", {
       product: product.get({ plain: true }),
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -195,11 +206,11 @@ router.get("/product/:id", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-  res.redirect("/");
-  return;
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
   }
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;

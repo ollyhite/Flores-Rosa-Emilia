@@ -1,5 +1,15 @@
 const router = require("express").Router();
+const session = require("express-session");
 const { User } = require("../../models");
+
+router.get("/", async (req, res) => {
+  try {
+    session.findAll().then(userID);
+    res.status(200).json(userID);
+  } catch (err) {
+    res.status(404).json(err);
+  }
+});
 
 router.post("/", async (req, res) => {
   try {
