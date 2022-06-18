@@ -3,27 +3,33 @@ const { Category, Product, ProdImg, Img } = require("../models");
 
 // GET homepage
 router.get("/", async (req, res) => {
+  console.log(
+    "~~~~~~~~~~~~~~~~~~ " +
+      req.session.user_id +
+      " is the current user!" +
+      " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  );
   try {
     const bdImgData = await Img.findAll();
     const imgArry = bdImgData.map((img) => img.get({ plain: true }));
     // console.log({imgArry});
     // console.log("imgArry.length",imgArry.length);
-  
+
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
 
     shuffleArray(imgArry);
     // console.log(imgArry);
-    const randomImgArry =[];
+    const randomImgArry = [];
     for (let i = 0; i < 6; i++) {
       const element = imgArry[i];
-      randomImgArry.push(element.img_path)
+      randomImgArry.push(element.img_path);
     }
-    
+
     res.render("homepage", { randomImgArry });
   } catch (err) {
     console.log(err);
@@ -195,11 +201,11 @@ router.get("/product/:id", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  // if (req.session.loggedIn) {
-  res.redirect("/");
-  return;
-  // }
-  // res.render('login');
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
 });
 
 module.exports = router;

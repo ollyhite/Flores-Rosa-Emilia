@@ -25,8 +25,8 @@
                 <h1 class="mb-5">{{product.product_name}}</h1>
                 <p class="mb-5">Price:{{product.price}}</p> 
                 <h5 class="">Amount want to add</h5>
-                <input class="number-select mb-5" type="number">
-                <a href="#" class="addcart-btn btn btn-primary">Add Cart</a>
+                <input class="number-select mb-5" type="number" id="quantity">
+                <button id="addcartbtn"href="#" class="addcart-btn btn btn-primary" data-a={{product.id}} data-b={{product.price}}>Add Cart</button> 
             </div>
         </div>
         <div class="bottom mt-5 px-5">
@@ -35,3 +35,4 @@
         </div>
 
 </div>
+<script src="/js/forCart.js"></script>
