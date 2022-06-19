@@ -103,7 +103,7 @@ const imgData = [
   }, // 25
   {
     img_path: "PinkNButMomDayBalloon.jpeg",
-    product_id: 24,
+    product_id: 7,
   }, // 26
   {
     img_path: "PurpleAndPinkWreath.jpeg",
