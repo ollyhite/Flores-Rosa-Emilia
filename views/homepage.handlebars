@@ -1,74 +1,53 @@
-<section
-  class="main-block position-relative d-flex flex-column justify-content-center align-items-center"
->
-  <div class="main-img"></div>
-  <div
-    class="main-text position-absolute d-flex flex-column justify-content-between align-items-center"
-  >
-    <h1>Flores Rosa Emlia</h1>
-    <button><a
-        class="seemore-btn"
-        href="#gallery"
-      >{{translation.SeeMore}}</a></button>
-  </div>
+<section class="main-block position-relative d-flex flex-column justify-content-center align-items-center">
+    <div class="main-img"></div>
+    <div class="main-text position-absolute d-flex flex-column justify-content-between align-items-center">
+        <h1>Flores Rosa Emlia</h1>
+        <button><a class="seemore-btn" href="#gallery">{{translation.SeeMore}}</a></button>
+    </div>
 </section>
 <section class="about p-5">
-  <h2>{{translation.About}} Flores Rosa Emlia</h2>
+    <h2>{{translation.About}} Flores Rosa Emlia</h2>
 </section>
 <section class="home-gallery p-5" id="gallery">
-  <h2>{{translation.Gallery}}</h2>
-  <div class="d-flex flex-inline-column align-items-center">
-    <div class="d-flex align-items-center justify-content-around mb-4 warp">
-      <a href="/product/{{randomImgArry.0.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.0.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.1.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.1.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.2.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.2.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.3.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.3.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.4.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.4.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.5.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.5.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.6.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.6.src}}" alt="" />
-      </a>
-      <a href="/product/{{randomImgArry.7.id}}">
-        <img class="m-4" src="/images/{{randomImgArry.7.src}}" alt="" />
-      </a>
+    <h2>{{translation.Gallery}}</h2>
+    <div class="d-flex flex-inline-column align-items-center">
+        <div class="d-flex align-items-center justify-content-around mb-4 warp">
+            <a href="/product/{{randomImgArry.[0].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[0].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[1].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[1].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[2].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[2].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[3].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[3].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[4].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[4].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[5].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[5].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[6].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[6].src}}" alt="">
+            </a>
+            <a href="/product/{{randomImgArry.[7].product_id}}">
+                <img class="m-4" src="/images/{{randomImgArry.[7].src}}" alt="">
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 <section class="contact p-5">
-  <h2>{{translation.ContactUs}}</h2>
-  <p class="mail px-5"><a
-      href="mailto:floresrosaemlia@gmail.com"
-    >{{translation.SendEmailToUs}}</a></p>
-  <div
-    class="socialIcon-frame d-flex justify-content-center align-items-center"
-  >
-    <img
-      class="icon social mx-4"
-      id="facebook"
-      src="/images/facebook.svg"
-      alt=""
-    />
-    <img
-      class="icon social mx-4"
-      id="whatsapp"
-      src="/images/whatsapp.svg"
-      alt=""
-    />
-    <img class="icon social mx-4" src="/images/instagram.svg" alt="" />
-    <img class="icon social mx-4" src="/images/twitter.svg" alt="" />
-  </div>
+    <h2>{{translation.ContactUs}}</h2>
+    <p class="mail px-5"><a href="mailto:floresrosaemlia@gmail.com">{{translation.SendEmailToUs}}</a></p>
+    <div class="socialIcon-frame d-flex justify-content-center align-items-center">
+        <img class="icon social mx-4" id="facebook" src="/images/facebook.svg" alt="">
+        <img class="icon social mx-4" id="whatsapp" src="/images/whatsapp.svg" alt="">
+        <img class="icon social mx-4" src="/images/instagram.svg" alt="">
+        <img class="icon social mx-4" src="/images/twitter.svg" alt="">
+    </div>
 </section>
 
 <script src="/js/homepage.js"></script>

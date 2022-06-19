@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Category, Product, Img ,Reviews,User} = require("../models");
+const { Category, Product, Img, Reviews, User } = require("../models");
 
 // GET homepage
 router.get("/", async (req, res) => {
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   try {
     const bdImgData = await Img.findAll();
     const imgArry = bdImgData.map((img) => img.get({ plain: true }));
-    // console.log({imgArry});
+    console.log({ imgArry });
     // console.log("imgArry.length",imgArry.length);
 
     function shuffleArray(array) {
@@ -23,14 +23,18 @@ router.get("/", async (req, res) => {
     }
 
     shuffleArray(imgArry);
-    // console.log(imgArry);
+    console.log(imgArry);
     const randomImgArry = [];
     for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
-      randomImgArry.push({id:element.id,src:element.img_path});
+      randomImgArry.push({
+        id: element.id,
+        src: element.img_path,
+        product_id: element.product_id,
+      });
     }
     console.log(randomImgArry);
-    res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in,});
+    res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -195,14 +199,15 @@ router.get("/product/:id", async (req, res) => {
         },
         {
           model: Reviews,
-          attributes: ["review_title","review_text","rating","user_id"],
+          attributes: ["review_title", "review_text", "rating", "user_id"],
         },
-        // {
-        //   model: User,
-        //   attributes: ["username"],
-        // }
       ],
     });
+    // console.log(product);
+    const userName = await User.findOne({
+      where: { id: product.reviews[0].user_id },
+    });
+    console.log(userName.username);
     console.log(product.get({ plain: true }));
     res.render("product", {
       product: product.get({ plain: true }),
