@@ -18,16 +18,18 @@ router.get("/", async (req, res) => {
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
+        // console.log(j);
+        // console.log([array[i], array[j]]);
         [array[i], array[j]] = [array[j], array[i]];
       }
     }
 
     shuffleArray(imgArry);
-    // console.log(imgArry);
+    console.log(imgArry);
     const randomImgArry = [];
     for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
-      randomImgArry.push({id:element.id,src:element.img_path});
+      randomImgArry.push({id:element.product_id,src:element.img_path});
     }
     console.log(randomImgArry);
     res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in,});
@@ -200,12 +202,34 @@ router.get("/product/:id", async (req, res) => {
         // {
         //   model: User,
         //   attributes: ["username"],
+        //   where: ["username = user_id"],
         // }
       ],
     });
-    console.log(product.get({ plain: true }));
+    const dbProductData = product.get({ plain: true });
+    console.log(dbProductData.reviews[0].user_id);
+    const newUserData =[];
+    for (let i = 0; i < dbProductData.reviews.length; i++) {
+      const userData = await User.findOne({ where: { id: dbProductData.reviews[i].user_id } });
+      const newData = {...dbProductData.reviews[i],username:userData.username}
+      newUserData.push(newData)
+    }
+
     res.render("product", {
       product: product.get({ plain: true }),
+      reviews: newUserData,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/cart", async (req, res) => {
+  try {
+    
+    res.render("cart", {
       userID: req.session.user_id,
       loggedIn: req.session.logged_in,
     });

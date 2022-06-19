@@ -36,20 +36,8 @@
 
         <section class="reviews-section">
             <h2>Reviews</h2>
-            {{#each product.reviews as |review|}}
-                {{!-- {{> review-card}} --}}
-                <div class="card review-card">
-                    <div class="card-header">
-                        {{review.review_title}}
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                        <p>{{review.rating}}</p>
-                        <p>{{review.review_text}}</p>
-                        <footer class="blockquote-footer">{{review.user_id}}</footer>
-                        </blockquote>
-                    </div>
-                </div>
+            {{#each reviews as |review|}}
+                {{> review-card}}
             {{/each}}
         </section>
         <form class="comment-form">
