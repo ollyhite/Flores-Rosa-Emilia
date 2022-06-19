@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Category, Product, ProdImg, Img } = require("../models");
+const { Category, Product, Img ,Reviews,User} = require("../models");
 
 // GET homepage
 router.get("/", async (req, res) => {
@@ -27,9 +27,9 @@ router.get("/", async (req, res) => {
     const randomImgArry = [];
     for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
-      randomImgArry.push(element.img_path);
+      randomImgArry.push({id:element.id,src:element.img_path});
     }
-
+    console.log(randomImgArry);
     res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in,});
   } catch (err) {
     console.log(err);
@@ -193,8 +193,17 @@ router.get("/product/:id", async (req, res) => {
           model: Img,
           attributes: ["img_path"],
         },
+        {
+          model: Reviews,
+          attributes: ["review_title","review_text","rating","user_id"],
+        },
+        // {
+        //   model: User,
+        //   attributes: ["username"],
+        // }
       ],
     });
+    console.log(product.get({ plain: true }));
     res.render("product", {
       product: product.get({ plain: true }),
       userID: req.session.user_id,

@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="153" height="153" viewBox="0 0 153 153">
-  <g id="Page-1" transform="translate(0 0.269)">
-    <g id="Social-Icons---Circle">
-      <g id="Facebook">
-        <rect id="Oval" width="153" height="153" rx="8" transform="translate(0 -0.268)" fill="#8a72a3"/>
-        <path id="Path_146" data-name="Path 146" d="M94.623,13.885v19.75L82.9,33.666c-9.188,0-10.959,4.365-10.959,10.745V58.544H93.829l-2.839,22.1H71.942v57.51H49.112V80.645H30v-22.1H49.112v-16.3C49.112,23.318,60.648,13,77.559,13A154.683,154.683,0,0,1,94.623,13.885Z" transform="translate(33.638 14.577)" fill="#fff" fill-rule="evenodd"/>
-      </g>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="232" height="232" viewBox="0 0 232 232">
+  <path id="facebook_1_" data-name="facebook (1)" d="M232,116.709C232,52.25,180.066,0,116.013,0,51.931.014,0,52.25,0,116.724,0,174.963,42.42,223.242,97.861,232V150.447H68.429V116.724H97.89V90.99C97.89,61.747,115.215,45.6,141.7,45.6a177.413,177.413,0,0,1,25.966,2.276V76.578H153.041c-14.4,0-18.891,9-18.891,18.239v21.892h32.157l-5.132,33.723H134.135v81.552C189.576,223.228,232,174.949,232,116.709Z" transform="translate(0.002 0.001)" fill="#8a72a3"/>
 </svg>

@@ -23,6 +23,28 @@ body{
 
 /* homepage css */
 
+/* top btn */
+.top {
+    width: 70px;
+    height: 70px;
+    border-radius: 50% 50%;
+    background-color: var(--tertiary);
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    z-index: 5;
+    font-weight: bold;
+    color: var(--primaryDarker);
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top:hover{
+    color: var(--primary);
+}
+
 header{
     width: 100%;
 }
@@ -62,6 +84,7 @@ a{
 
 a:hover{
     color: var(--quatrinary);
+    cursor: pointer;
 }
 
 main{
@@ -113,6 +136,10 @@ button:hover {
     padding: 15px 50px;
 }
 
+.main-text button a {
+    color: white;
+}
+
 .about{
     width: 100vw;
     height: 100vh;
@@ -130,6 +157,10 @@ button:hover {
 .home-gallery img:hover {
     opacity: 1;
     filter: brightness(100%);
+}
+
+.home-gallery h2 {
+    color: var(--primary);
 }
 .gallery-frame{
     flex-wrap: wrap;
@@ -153,13 +184,12 @@ button:hover {
 }
 .icon.social:hover{
     cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(35%) sepia(9%) saturate(1467%) hue-rotate(226deg) brightness(90%) contrast(83%);
 }
-.icon.social.hoverC:active {
-    filter: brightness(0) saturate(100%) invert(87%) sepia(75%) saturate(673%) hue-rotate(277deg) brightness(89%) contrast(82%);
-}
-.icon.social.hoverC:hover {
+.icon.social:active {
     filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(1364%) hue-rotate(226deg) brightness(95%) contrast(92%);
 }
+
 
 /* cart show number css */
 .badge {
@@ -217,10 +247,10 @@ button:hover {
     box-shadow: 7px 13px 9px -2px #777474;
 }
 
-.carousel-item img{
-    /* width: 500px;
-        height: 500px; */
-        /* object-fit: cover; */
+.card .carousel-item img{
+    width: 250px;
+        height: 250px;
+/* /* object-fit: cover; */
 }
 .card button:hover{
     background-color: transparent;
@@ -233,11 +263,26 @@ button:hover {
 }
 
 .addcart-btn img{
-    width: 2rem;
+    width: 1.5rem;
 }
 
-.addcart-btn:hover{
+.card .addcart-btn:hover{
     background-color: var(--dark);
 }
 /* card end here */
 
+.prodect-section .carousel button{
+    background-color: transparent;
+}
+
+.review-card{
+    background-color: var(--light);
+    border: 5px dotted var(--quatrinary);
+    box-shadow: none;
+}
+.review-card .card-header{
+    background-color: transparent;
+    border-bottom: 5px solid var(--quatrinary);
+    
+    /* border-bottom: 5px dotted var(--quatrinary); */
+}
