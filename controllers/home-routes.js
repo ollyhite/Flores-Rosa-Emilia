@@ -207,14 +207,14 @@ router.get("/product/:id", async (req, res) => {
       ],
     });
     const dbProductData = product.get({ plain: true });
-    console.log(dbProductData.reviews[0].user_id);
     const newUserData =[];
-    for (let i = 0; i < dbProductData.reviews.length; i++) {
-      const userData = await User.findOne({ where: { id: dbProductData.reviews[i].user_id } });
-      const newData = {...dbProductData.reviews[i],username:userData.username}
-      newUserData.push(newData)
+    if(dbProductData.reviews){
+        for (let i = 0; i < dbProductData.reviews.length; i++) {
+        const userData = await User.findOne({ where: { id: dbProductData.reviews[i].user_id } });
+        const newData = {...dbProductData.reviews[i],username:userData.username}
+        newUserData.push(newData)
+      }
     }
-
     res.render("product", {
       product: product.get({ plain: true }),
       reviews: newUserData,
