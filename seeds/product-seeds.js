@@ -85,9 +85,9 @@ const productData = [
     product_name: "Mixed Flower Arrangement with Greenery",
     product_desc:
       "This arrangement is perfect for lighting up a room with the beauty of springtime!",
-    product_name_es:
+    product_name_es: "Arreglo Floral Mixto con Vegetación",
+    product_desc_es:
       "¡Este arreglo es perfecto para iluminar una habitación con la belleza de la primavera!",
-    product_desc_es: "",
     price: 280.0,
     category_id: 2,
   }, // 9
