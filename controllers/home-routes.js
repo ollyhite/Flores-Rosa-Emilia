@@ -1,30 +1,38 @@
 const router = require("express").Router();
-const { Category, Product, ProdImg, Img } = require("../models");
+const { Category, Product, Img ,Reviews,User} = require("../models");
 
 // GET homepage
 router.get("/", async (req, res) => {
+  console.log(
+    "~~~~~~~~~~~~~~~~~~ " +
+      req.session.user_id +
+      " is the current user!" +
+      " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  );
   try {
     const bdImgData = await Img.findAll();
     const imgArry = bdImgData.map((img) => img.get({ plain: true }));
     // console.log({imgArry});
     // console.log("imgArry.length",imgArry.length);
-  
+
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        // console.log(j);
+        // console.log([array[i], array[j]]);
+        [array[i], array[j]] = [array[j], array[i]];
       }
     }
 
     shuffleArray(imgArry);
-    // console.log(imgArry);
-    const randomImgArry =[];
+    console.log(imgArry);
+    const randomImgArry = [];
     for (let i = 0; i < 8; i++) {
       const element = imgArry[i];
-      randomImgArry.push(element.img_path)
+      randomImgArry.push({id:element.product_id,src:element.img_path});
     }
-    
-    res.render("homepage", { randomImgArry });
+    console.log(randomImgArry);
+    res.render("homepage", { randomImgArry, loggedIn: req.session.logged_in,});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -59,7 +67,8 @@ router.get("/bouquets", async (req, res) => {
     // console.log(bouquets);
     res.render("bouquets", {
       bouquets,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -95,7 +104,8 @@ router.get("/arrangements", async (req, res) => {
     // console.log(arrangements);
     res.render("arrangements", {
       arrangements,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -131,7 +141,8 @@ router.get("/boxes", async (req, res) => {
     // console.log(boxes);
     res.render("boxes", {
       boxes,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -167,7 +178,8 @@ router.get("/extras", async (req, res) => {
     // console.log(extras);
     res.render("extras", {
       extras,
-      loggedIn: req.session.loggedIn,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -183,11 +195,43 @@ router.get("/product/:id", async (req, res) => {
           model: Img,
           attributes: ["img_path"],
         },
+        {
+          model: Reviews,
+          attributes: ["review_title","review_text","rating","user_id"],
+        },
+        // {
+        //   model: User,
+        //   attributes: ["username"],
+        //   where: ["username = user_id"],
+        // }
       ],
     });
+    const dbProductData = product.get({ plain: true });
+    const newUserData =[];
+    if(dbProductData.reviews){
+        for (let i = 0; i < dbProductData.reviews.length; i++) {
+        const userData = await User.findOne({ where: { id: dbProductData.reviews[i].user_id } });
+        const newData = {...dbProductData.reviews[i],username:userData.username}
+        newUserData.push(newData)
+      }
+    }
     res.render("product", {
       product: product.get({ plain: true }),
-      loggedIn: req.session.loggedIn,
+      reviews: newUserData,
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/cart", async (req, res) => {
+  try {
+    
+    res.render("cart", {
+      userID: req.session.user_id,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -195,11 +239,11 @@ router.get("/product/:id", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-  res.redirect("/");
-  return;
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
   }
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;
