@@ -20,6 +20,14 @@ Product.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    product_name_es: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    product_desc_es: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,

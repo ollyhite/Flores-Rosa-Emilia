@@ -18,7 +18,7 @@ const seedAll = async () => {
   console.log("\n ~~~~~~~ PRODUCTS SEEDED ~~~~~~~~\n");
 
   await seedImg();
-  console.log("\n ~~~~~~~ PRODUCTS SEEDED ~~~~~~~~\n");
+  console.log("\n ~~~~~~~ IMAGES SEEDED ~~~~~~~~\n");
 
   // await seedProdImg();
   // console.log("\n ~~~~~~~ PRODUCT IMAGES SEEDED ~~~~~~~~\n");

@@ -11,7 +11,7 @@ const categoryData = [
     category_name: "Boxes",
   },
   {
-    category_name: "Extras",
+    category_name: "Balloons",
   },
 ];
 
