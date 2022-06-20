@@ -6,12 +6,22 @@
     </div>
 </section>
 <section class="about p-5">
-    <h2>{{translation.About}} Flores Rosa Emlia</h2>
+  <h2>{{translation.About}} Flores Rosa Emlia</h2>
+  <div class="about-frame d-flex justify-content-between p-5">
+    <div class="left mr-5">
+      <p class="pr-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div class="right position-relative d-flex align-items-center justify-content-around ml-6">
+      <div class="bg-block position-relative">
+        <img class="about-img position-absolute" src="/images/main-bg.jpeg" alt="">
+      </div>
+    </div>
+  </div>
 </section>
-<section class="home-gallery p-5" id="gallery">
+<section class="home-gallery p-5 pt-0" id="gallery">
   <h2>{{translation.Gallery}}</h2>
-  <div class="d-flex flex-inline-column align-items-center">
-    <div class="d-flex align-items-center justify-content-around mb-4 warp">
+  {{!-- <div class="d-flex flex-inline-column align-items-center"> --}}
+    <div class="gallery-frame d-flex align-items-center justify-content-around mb-4 mw-70">
       <a href="/product/{{randomImgArry.[0].id}}">
         <img class="m-4" src="/images/{{randomImgArry.[0].src}}" alt="" />
       </a>
@@ -37,16 +47,33 @@
         <img class="m-4" src="/images/{{randomImgArry.[7].src}}" alt="" />
       </a>
     </div>
+  {{!-- </div> --}}
 </section>
 <section class="contact p-5">
-    <h2>{{translation.ContactUs}}</h2>
-    <p class="mail px-5"><a href="mailto:floresrosaemlia@gmail.com">{{translation.SendEmailToUs}}</a></p>
-    <div class="socialIcon-frame d-flex justify-content-center align-items-center">
-        <img class="icon social mx-4" id="facebook" src="/images/facebook.svg" alt="">
-        <img class="icon social mx-4" id="whatsapp" src="/images/whatsapp.svg" alt="">
-        <img class="icon social mx-4" src="/images/instagram.svg" alt="">
-        <img class="icon social mx-4" src="/images/twitter.svg" alt="">
-    </div>
+  <h2>{{translation.ContactUs}}</h2>
+  <p class="mail px-5"><a
+      href="mailto:floresrosaemlia@gmail.com"
+    >{{translation.SendEmailToUs}}</a></p>
+  <div
+    class="socialIcon-frame d-flex justify-content-center align-items-center"
+  >
+    <a href="https://www.facebook.com/arreglos.florales.1675">
+      <img
+      class="icon social mx-4"
+      id="facebook"
+      src="/images/facebook.svg"
+      alt=""
+    />
+    </a>
+    <img
+      class="icon social mx-4"
+      id="whatsapp"
+      src="/images/whatsapp.svg"
+      alt=""
+    />
+    <img class="icon social mx-4" src="/images/instagram.svg" alt="" />
+    <img class="icon social mx-4" src="/images/twitter.svg" alt="" />
+  </div>
 </section>
 
 <script src="/js/homepage.js"></script>
