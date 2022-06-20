@@ -1,0 +1,24 @@
+<form class="card card-form" style="width: 20rem;">
+  <div
+    id="carouselExampleControls"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      {{#each img_path as |image|}}
+        
+        <div {{#if image.[0]}}class="carousel-item active"{{else}}class="carousel-item"{{/if}}>
+          
+          <img src="/images/{{image}}" class="d-block w-100" alt="...">
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><a href="{{prodPath}}product/{{product_id}}">{{product_name_es}}</a></h5>
+      <p class="card-text">{{product_desc_es}}</p>
+      <p class="card-text">${{price}} USD</p>
+      <input class="number-select mb-5 form-control" type="number" min="0" value="1">
+      <button href="#" class="addcart-btn btn btn-primary" data-id="{{product_id}}" data-price="{{price}}" data-c="{{loggedIn}}"><img src="/images/addcart_icon.svg" alt=""></button>
+  </div>          
+</form>
