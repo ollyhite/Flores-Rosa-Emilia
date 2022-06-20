@@ -24,7 +24,7 @@
             <div class="right d-flex flex-column w-25">
                 <h1 class="mb-5">{{product.product_name}}</h1>
                 {{!-- {{#if document.documentElement.lang === "en"}} --}}
-                    <h1 class="mb-5">{{product.product_name}}</h1>
+                    {{!-- <h1 class="mb-5">{{product.product_name}}</h1> --}}
                 {{!-- {{else}} --}}
                     {{!-- <h1 class="mb-5">{{product.product_name_es}}</h1> --}}
                 {{!-- {{/if}} --}}
@@ -51,11 +51,10 @@
         </section>
         <form class="reviews-form">
         <h3>Leave Comments Here</h3>
-        <div class="mb-3">
+        {{!-- <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">User Name</label>
-            {{!-- <input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled> --}}
-            <input class="form-control" id="username" type="text" placeholder="Username" aria-label="input example">
-        </div>
+            <input class="form-control" id="username" type="text" placeholder="Username" aria-label="input example" disabled>
+        </div> --}}
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Title</label>
             <input class="form-control" id="review_title" type="text" placeholder="Title" aria-label="input example">
@@ -72,12 +71,12 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+            <label for="exampleFormControlTextarea1" class="form-label">Reviews</label>
             <textarea class="form-control" id="review_text" rows="3"></textarea>
             </div>
             <div class="d-flex mt-5 btn-frame justify-content-end">
             <button type="cancel" class="btn btn-info"><a href="/{{category_id}}">Back</a></button>
-            <button type="submit" class="btn btn-info ms-3 submit" data-product-id="{{product.id}}" data-user-id="{{userID}}">Submit</button>
+            <button type="submit" class="btn btn-info ms-3 submit" data-product-id="{{product.id}}" data-user-id="{{userID}}" data-login="{{loggedIn}}">Submit</button>
             </div>
     </form>
 </div>

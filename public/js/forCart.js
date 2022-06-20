@@ -45,12 +45,13 @@ addcart.addEventListener("click", test1);
 // comment api
 
 const commentsFormHandler = async (event) => {
-    event.preventDefault();
-
-    const reviewTitle = document.querySelector('#review_title').value.trim();
-    const reviewText = document.querySelector("#review_text").value.trim()
+  event.preventDefault();
+  const submitBtn = document.querySelector('.submit')
+    const isLogin = submitBtn.dataset.login;
+    if(isLogin){
+    const review_title = document.querySelector('#review_title').value.trim();
+    const review_text = document.querySelector("#review_text").value.trim()
     const rating = document.querySelector("#rating").value
-    const submitBtn = document.querySelector('.submit')
     const product_id = submitBtn.dataset.productId;
     const user_id = submitBtn.dataset.userId;
 
@@ -61,7 +62,7 @@ const commentsFormHandler = async (event) => {
         console.log({rating});
         console.log({user_id});
 
-    if (reviewTitle && reviewText && product_id && rating) {
+    if (review_title && review_text && product_id && rating) {
         const response = await fetch('/api/reviews', {
         method: 'POST',
         body: JSON.stringify({ reviewTitle, reviewText, product_id,rating,user_id }),
@@ -69,11 +70,15 @@ const commentsFormHandler = async (event) => {
         });
 
         if (response.ok) {
-        // document.location.replace(`/product/${product_id}`);
+        document.location.replace(`/product/${product_id}`);
         } else {
         alert('Failed to add reviews.');
         }
     }
+  }else{
+    alert('Please Login first')
+    document.location.replace(`/login`);
+  }
 };
 
 document
