@@ -10,6 +10,15 @@ const cardFormHandler = (event)=>{
     console.log({productId});
     console.log({productPrice});
     console.log({quantity});
+    buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
+    originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
+    const addItem = {id:productId,price:productPrice,quantity:quantity}
+    buylistArray.push(addItem);
+    localStorage.setItem("buyinglist", JSON.stringify(buylistArray));
+
+    const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
+    console.log(addItemQantity);
+    localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
 }
 
 

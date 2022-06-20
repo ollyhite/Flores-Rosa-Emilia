@@ -17,3 +17,18 @@
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
+
+//cart num
+
+const carNum = localStorage.getItem('numbersOfList');
+const carNumEl = document.getElementById('lblCartCount');
+
+if(!carNum || carNum===0 || carNum==="0"){
+    carNumEl.setAttribute('css','display:none;')
+}else{
+    while( carNumEl.firstChild ) {
+        carNumEl.removeChild( carNumEl.firstChild );
+    }
+    carNumEl.appendChild( document.createTextNode(carNum) );
+}
+

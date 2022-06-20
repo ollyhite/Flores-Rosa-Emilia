@@ -287,3 +287,28 @@ button:hover {
     
     /* border-bottom: 5px dotted var(--quatrinary); */
 }
+
+
+.cart-section .left{
+    width: 65%;
+}
+
+.accordion-header{
+    background-color: var(--quatrinary);
+}
+.accordion-header button.accordion-button{
+    background-color: transparent;
+}
+.accordion-button::after{
+    display: none;
+}
+
+
+.accordion-header img{
+    width: 1rem;
+    cursor: pointer;
+}
+.accordion-header .delete i{
+    font-size: 1.5rem;
+    color: var(--light);
+}
