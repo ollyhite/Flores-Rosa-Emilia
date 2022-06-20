@@ -100,7 +100,7 @@ main{
 .main-img {
     width: 100%;
     height: 100%;
-    background-image: url(../Images/PastelPinkPurpleBouquet.jpeg);
+    background-image: url(../Images/main-bg.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -241,15 +241,16 @@ button:hover {
 }
 .card {
     border: none;
-    background-color: var(--tertiary);
+    /* background-color: var(--tertiary); */
+    border: 5px solid var(--primary);
     padding: 2rem;
     margin: 30px;
     box-shadow: 7px 13px 9px -2px #777474;
 }
 
 .card .carousel-item img{
-    width: 250px;
-        height: 250px;
+    /* width: 250px;
+        height: 250px; */
 /* /* object-fit: cover; */
 }
 .card button:hover{
@@ -285,4 +286,29 @@ button:hover {
     border-bottom: 5px solid var(--quatrinary);
     
     /* border-bottom: 5px dotted var(--quatrinary); */
+}
+
+
+.cart-section .left{
+    width: 65%;
+}
+
+.accordion-header{
+    background-color: var(--quatrinary);
+}
+.accordion-header button.accordion-button{
+    background-color: transparent;
+}
+.accordion-button::after{
+    display: none;
+}
+
+
+.accordion-header img{
+    width: 1rem;
+    cursor: pointer;
+}
+.accordion-header .delete i{
+    font-size: 1.5rem;
+    color: var(--light);
 }
