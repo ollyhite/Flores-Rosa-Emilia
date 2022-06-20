@@ -39,3 +39,43 @@ function test1() {
 }
 
 addcart.addEventListener("click", test1);
+
+
+
+// comment api
+
+const commentsFormHandler = async (event) => {
+    event.preventDefault();
+
+    const reviewTitle = document.querySelector('#review_title').value.trim();
+    const reviewText = document.querySelector("#review_text").value.trim()
+    const rating = document.querySelector("#rating").value
+    const submitBtn = document.querySelector('.submit')
+    const product_id = submitBtn.dataset.productId;
+    const user_id = submitBtn.dataset.userId;
+
+    // const product_id = Number(submitBtn.value);
+        console.log({reviewTitle});
+        console.log({reviewText});
+        console.log({product_id});
+        console.log({rating});
+        console.log({user_id});
+
+    if (reviewTitle && reviewText && product_id && rating) {
+        const response = await fetch('/api/reviews', {
+        method: 'POST',
+        body: JSON.stringify({ reviewTitle, reviewText, product_id,rating,user_id }),
+        headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+        // document.location.replace(`/product/${product_id}`);
+        } else {
+        alert('Failed to add reviews.');
+        }
+    }
+};
+
+document
+    .querySelector('.reviews-form')
+    .addEventListener('submit', commentsFormHandler);
