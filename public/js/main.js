@@ -21,9 +21,12 @@
 //cart num
 
 const carNum = localStorage.getItem('numbersOfList');
+console.log(carNum);
 const carNumEl = document.getElementById('lblCartCount');
+const addBtn = document.getElementsByClassName('addcart-btn')
 
 if(!carNum || carNum===0 || carNum==="0"){
+    // localStorage.setItem('numbersOfList')
     carNumEl.setAttribute('css','display:none;')
 }else{
     while( carNumEl.firstChild ) {
@@ -31,4 +34,3 @@ if(!carNum || carNum===0 || carNum==="0"){
     }
     carNumEl.appendChild( document.createTextNode(carNum) );
 }
-

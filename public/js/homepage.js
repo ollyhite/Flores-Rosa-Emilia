@@ -21,3 +21,8 @@ function unhover(element) {
         element.setAttribute('src', '/images/whatsapp.svg');
     }
 }
+
+// const carNum = localStorage.getItem('numbersOfList');
+// if(!carNum){
+//     localStorage.setItem('numbersOfList')
+// }

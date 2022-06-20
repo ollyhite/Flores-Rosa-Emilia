@@ -1,17 +1,18 @@
 
 const cardFormHandler = (event)=>{
     event.preventDefault();
+    console.log("click");
 
     const addcartBtn = event.target.querySelector('button');
-    console.log(addcartBtn);
     const productId = addcartBtn.dataset.id;
     const productPrice = addcartBtn.dataset.price;
     const quantity = event.target.querySelector('.number-select').value;
     console.log({productId});
     console.log({productPrice});
     console.log({quantity});
-    buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
-    originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
+
+    const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
+    const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
     const addItem = {id:productId,price:productPrice,quantity:quantity}
     buylistArray.push(addItem);
     localStorage.setItem("buyinglist", JSON.stringify(buylistArray));
@@ -19,14 +20,27 @@ const cardFormHandler = (event)=>{
     const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
     console.log(addItemQantity);
     localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
+
+    const carNumEl = document.getElementById('lblCartCount');
+
+    const val = parseInt(carNumEl.innerHTML);
+    
+    const carNum = localStorage.getItem('numbersOfList');
+
+    if(!carNum || carNum===0 || carNum==="0"){
+        carNumEl.setAttribute('css','display:none;')
+    }else{
+        const newNum = val + parseInt(quantity);
+        while( carNumEl.firstChild ) {
+        carNumEl.removeChild( carNumEl.firstChild );
+        }
+        carNumEl.appendChild( document.createTextNode(newNum) );
+    }
 }
 
 
-
-// addcartBtn.addEventListener("click",addProduct(this));
-
 const constainerEl = document.getElementsByClassName('container');
-// const cardEl = document.getElementsByClassName('card');
 for (const form of constainerEl) {
     form.addEventListener('submit', cardFormHandler);
 }
+

@@ -18,6 +18,24 @@ function test1() {
   console.log(product_id);
   console.log(price);
   console.log(quantity);
+
+  const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
+    const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
+    const addItem = {id:product_id,price:price,quantity:quantity}
+    buylistArray.push(addItem);
+    localStorage.setItem("buyinglist", JSON.stringify(buylistArray));
+
+    const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
+    console.log(addItemQantity);
+    localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
+
+    const carNumEl = document.getElementById('lblCartCount');
+    var val = parseInt(carNumEl.innerHTML);
+    const newNum = val + parseInt(quantity);
+    while( carNumEl.firstChild ) {
+    carNumEl.removeChild( carNumEl.firstChild );
+    }
+    carNumEl.appendChild( document.createTextNode(newNum) );
 }
 
 addcart.addEventListener("click", test1);
