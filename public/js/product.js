@@ -4,6 +4,8 @@ const numberSel = document.getElementById("quantity");
 const product_id = parseInt(addcart.dataset.a);
 const price = parseInt(addcart.dataset.b);
 const user_id = addcart.dataset.c;
+const img = addcart.dataset.img;
+const productName = addcart.dataset.name;
 let quantity = "";
 function checkTextbox(element) {
   var check = element.value;
@@ -18,15 +20,19 @@ function test1() {
   console.log(product_id);
   console.log(price);
   console.log(quantity);
+  console.log(img);
+  console.log(productName);
 
   const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
     const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
-    const addItem = {id:product_id,price:price,quantity:quantity}
+    const addItem = {id:product_id,price:price,quantity:quantity,img:img,name:productName}
     buylistArray.push(addItem);
     localStorage.setItem("buyinglist", JSON.stringify(buylistArray));
 
-    const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
-    console.log(addItemQantity);
+    // const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
+    // const addItemQantity = parseInt(originItemQantity)+1;
+    const addItemQantity = parseInt(buylistArray.length);
+    // console.log(addItemQantity);
     localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
 
     const carNumEl = document.getElementById('lblCartCount');

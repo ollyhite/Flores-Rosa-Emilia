@@ -1,12 +1,12 @@
 <div class="container cart-section d-flex justify-content-between mt-5">
-    <div class="left">
+    <div class="left cart-left" id="cart-left">
       <h5>Shopping List</h5>
-        <div class="accordion" id="accordionExample">
+        <h1 id="empty-cart">Your cart is empty</h1>
+        {{!-- <div class="accordion" id="accordionExample">
           <div class="accordion-item mb-5">
             <h2 class="accordion-header d-flex align-items-center" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 24 Roses Bouquet
-                {{!-- {{product.product_name}} --}}
               </button>
               <button class="btn btn-link delete me-md-2" onclick="removeLi" type="button"><img src="/images/delete_icon.svg" alt=""></button>
             </h2>
@@ -20,17 +20,14 @@
                   <div class="col order-2">
                     <h5>Name</h5>
                     <p>24 Roses Bouquet</p>
-                    {{!-- <p>{{product.product_name}}</p> --}}
                   </div>
                   <div class="col order-3">
                     <h5>Price</h5>
                     <p>$ 200 USD</p>
-                    {{!-- <p>{{product.price}}</p> --}}
                   </div>
                   <div class="col order-4">
                     <h5>Quantity</h5>
                     <input class="form-control" type="number" min="0" value="2">
-                    {{!-- <input class="form-control" type="number" min="0" value="{{product.quantity}}"> --}}
                   </div>
                   <div class="col order-5">
                     <h5>Total</h5>
@@ -39,32 +36,9 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="accordion-item mb-5">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Quinceañera Bouquet
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item mb-5">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                100 Roses Bouquet
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-              </div>
-            </div>
-          </div>
-        </div>
+          </div> --}}
+          
+        {{!-- </div> --}}
     </div>
     <div class="right w-25">
       <h5>Specail Need</h5>
@@ -105,4 +79,4 @@
       <button class="form-control">Checkout</button>
     </div>
   </div>
-  
+  <script src="/js/cart.js"></script>

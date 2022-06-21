@@ -31,7 +31,7 @@
                 <p class="mb-5">{{translation.Price}}:{{product.price}}</p> 
                 <h5 class="">{{translation.Quantity}}</h5>
                 <input class="number-select mb-5 form-control" type="number" min="0" onchange="checkTextbox(this)" id="quantity" value="0">
-                <a href="#" class="addcart-btn btn btn-primary" id="addcartbtn" data-a="{{product.id}}" data-b="{{product.price}}" data-c="{{userID}}">{{translation.AddCart}}</a>
+                <a href="#" class="addcart-btn btn btn-primary" id="addcartbtn" data-a="{{product.id}}" data-b="{{product.price}}" data-c="{{userID}}" data-img="/images/{{product.imgs.[0].img_path}}" data-name="{{product.product_name_es}}">{{translation.AddCart}}>{{translation.AddCart}}</a>
             </div>
         </div>
         <div class="bottom mt-5 px-5">
@@ -80,4 +80,5 @@
             </div>
     </form>
 </div>
-<script src="/js/forCart.js"></script>
+<script src="/js/product.js"></script>
+
