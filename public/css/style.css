@@ -330,6 +330,39 @@ button:hover {
   color: var(--light);
 }
 
+#empty-cart{
+  color: #c0bfbf;
+}
+
+#back{
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+#back a{
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-weight: unset;
+}
+#reviews-submit{
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+#back:hover {
+  background-color: var(--quatrinary);
+}
+
+
+#reviews-submit:hover {
+  background-color: var(--quatrinary);
+}
+
+#addcartbtn:hover{
+  background-color: var(--quatrinary);
+}
+
 @media only screen and (max-width: 1100px) {
   .menu {
     width: 60%;
