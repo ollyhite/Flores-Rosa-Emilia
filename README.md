@@ -37,7 +37,7 @@ Tim Bathurst,
 Sheri Brown,
 Ellen Acquistapace
     
-    <a href="https://github.com/eacquistapace/Flores-Rosa-Emilia/graphs/contributors">
+  <a href="https://github.com/eacquistapace/Flores-Rosa-Emilia/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=eacquistapace/Flores-Rosa-Emilia" />
 </a>
 
