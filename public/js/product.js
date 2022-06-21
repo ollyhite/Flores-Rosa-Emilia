@@ -28,12 +28,10 @@ function test1() {
     localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
 
     const carNumEl = document.getElementById('lblCartCount');
-    var val = parseInt(carNumEl.innerHTML);
-    const newNum = val + parseInt(quantity);
     while( carNumEl.firstChild ) {
     carNumEl.removeChild( carNumEl.firstChild );
     }
-    carNumEl.appendChild( document.createTextNode(newNum) );
+    carNumEl.appendChild( document.createTextNode(addItemQantity) );
 }
 
 addcart.addEventListener("click", test1);
