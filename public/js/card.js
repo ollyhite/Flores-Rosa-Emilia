@@ -7,17 +7,21 @@ const cardFormHandler = (event)=>{
     const productId = addcartBtn.dataset.id;
     const productPrice = addcartBtn.dataset.price;
     const quantity = event.target.querySelector('.number-select').value;
+    const img = addcartBtn.dataset.img;
+    const productName = addcartBtn.dataset.name;
     // console.log({productId});
     // console.log({productPrice});
     // console.log({quantity});
 
     const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
     const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
-    const addItem = {id:productId,price:productPrice,quantity:quantity}
+    const addItem = {id:productId,price:productPrice,quantity:quantity,img:img,name:productName}
     buylistArray.push(addItem);
     localStorage.setItem("buyinglist", JSON.stringify(buylistArray));
 
-    const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
+    // const addItemQantity = parseInt(originItemQantity)+parseInt(quantity);
+    // const addItemQantity = parseInt(originItemQantity)+1;
+    const addItemQantity = parseInt(buylistArray.length);
     localStorage.setItem("numbersOfList", JSON.stringify(addItemQantity));
 
     const carNumEl = document.getElementById('lblCartCount');
