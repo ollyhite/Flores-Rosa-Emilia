@@ -23,11 +23,6 @@
             </div>
             <div class="right d-flex flex-column w-25">
                 <h1 class="mb-5">{{product.product_name}}</h1>
-                {{!-- {{#if document.documentElement.lang === "en"}} --}}
-                    {{!-- <h1 class="mb-5">{{product.product_name}}</h1> --}}
-                {{!-- {{else}} --}}
-                    {{!-- <h1 class="mb-5">{{product.product_name_es}}</h1> --}}
-                {{!-- {{/if}} --}}
                 <p class="mb-5">{{translation.Price}}:{{product.price}}</p> 
                 <h5 class="">{{translation.Quantity}}</h5>
                 <input class="number-select mb-5 form-control" type="number" min="0" onchange="checkTextbox(this)" id="quantity" value="0">
