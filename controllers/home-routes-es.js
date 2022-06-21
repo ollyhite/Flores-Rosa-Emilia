@@ -41,7 +41,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET bouquets page
 router.get("/bouquets", async (req, res) => {
   try {
     const dbBouquetData = await Category.findByPk(1, {
@@ -86,7 +86,7 @@ router.get("/bouquets", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET arrangements page
 router.get("/arrangements", async (req, res) => {
   try {
     const dbArrangementData = await Category.findByPk(2, {
@@ -132,7 +132,7 @@ router.get("/arrangements", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET boxes page
 router.get("/boxes", async (req, res) => {
   try {
     const dbBoxedData = await Category.findByPk(3, {
@@ -178,7 +178,7 @@ router.get("/boxes", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET extras page
 router.get("/extras", async (req, res) => {
   try {
     const dbExtrasData = await Category.findByPk(4, {
@@ -224,7 +224,7 @@ router.get("/extras", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET product page
 router.get("/product/:id", async (req, res) => {
   try {
     const product = await Product.findByPk(req.params.id, {
@@ -268,7 +268,7 @@ router.get("/product/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// GET cart page
 router.get("/cart", async (req, res) => {
   try {
     res.render("cart", {

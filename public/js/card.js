@@ -1,7 +1,6 @@
-
+//click addcart icon save to shoppingList in localsotrage
 const cardFormHandler = (event)=>{
     event.preventDefault();
-    // console.log("click");
 
     const addcartBtn = event.target.querySelector('button');
     const productId = addcartBtn.dataset.id;
@@ -9,9 +8,6 @@ const cardFormHandler = (event)=>{
     const quantity = event.target.querySelector('.number-select').value;
     const img = addcartBtn.dataset.img;
     const productName = addcartBtn.dataset.name;
-    // console.log({productId});
-    // console.log({productPrice});
-    // console.log({quantity});
 
     const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
     const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";

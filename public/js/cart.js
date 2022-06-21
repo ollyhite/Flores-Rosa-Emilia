@@ -1,3 +1,4 @@
+//generater the shopping list in cart page
 const shoppingList = JSON.parse(localStorage.getItem('buyinglist'))
 console.log("shoppingList",shoppingList);
 const emptyH1 = document.querySelector("#empty-cart")
@@ -135,7 +136,7 @@ if(!shoppingList||shoppingList.length<0||shoppingList===null){
     
 }
 
-
+//delete item in shopping list 
 const removeLi =(event)=>{
     event.preventDefault();
     console.log('delet');
