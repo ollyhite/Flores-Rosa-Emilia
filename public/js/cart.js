@@ -86,7 +86,7 @@ if(!shoppingList||shoppingList.length<0||shoppingList===null){
     col2El.appendChild(col2Title);
 
     const col2P = document.createElement('p');
-    col2P.textContent="24 Roses Bouquetc"
+    col2P.textContent=`${element.name}`
     col2El.appendChild(col2P);
 
     const col3El = document.createElement('div');

@@ -184,7 +184,7 @@ button:hover {
 .gallery-frame {
   width: 100%;
   overflow-x: scroll;
-  padding-left: 1400px;
+  padding-left: 90vw;
 }
 .gallery-frame::-webkit-scrollbar {
   display: none;
