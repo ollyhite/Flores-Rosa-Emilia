@@ -36,6 +36,12 @@ Pei-Yun Hite,
 Tim Bathurst,
 Sheri Brown,
 Ellen Acquistapace
+    
+    <a href="https://github.com/eacquistapace/Flores-Rosa-Emilia/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=eacquistapace/Flores-Rosa-Emilia" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## Questions
 ---
