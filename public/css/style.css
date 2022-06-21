@@ -330,22 +330,22 @@ button:hover {
   color: var(--light);
 }
 
-#empty-cart{
+#empty-cart {
   color: #c0bfbf;
 }
 
-#back{
+#back {
   background-color: var(--primary);
   color: white;
   border: none;
 }
-#back a{
+#back a {
   background-color: transparent;
   color: white;
   border: none;
   font-weight: unset;
 }
-#reviews-submit{
+#reviews-submit {
   background-color: var(--primary);
   color: white;
   border: none;
@@ -354,12 +354,11 @@ button:hover {
   background-color: var(--quatrinary);
 }
 
-
 #reviews-submit:hover {
   background-color: var(--quatrinary);
 }
 
-#addcartbtn:hover{
+#addcartbtn:hover {
   background-color: var(--quatrinary);
 }
 
