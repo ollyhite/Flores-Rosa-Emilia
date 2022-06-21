@@ -1,6 +1,6 @@
+//click addcart icon save to shoppingList in localsotrage
 const addcart = document.getElementById("addcartbtn");
 const numberSel = document.getElementById("quantity");
-// const quantity = numberSel.value;
 const product_id = parseInt(addcart.dataset.a);
 const price = parseInt(addcart.dataset.b);
 const user_id = addcart.dataset.c;
@@ -13,15 +13,7 @@ function checkTextbox(element) {
   return quantity;
 }
 
-console.log(quantity);
-
 function test1() {
-  console.log(user_id);
-  console.log(product_id);
-  console.log(price);
-  console.log(quantity);
-  console.log(img);
-  console.log(productName);
 
   const buylistArray = JSON.parse(localStorage.getItem("buyinglist")) || [];
     const originItemQantity = JSON.parse(localStorage.getItem("numbersOfList")) || "0";
@@ -48,7 +40,7 @@ addcart.addEventListener("click", test1);
 
 
 
-// comment api
+// reviews api
 
 const commentsFormHandler = async (event) => {
   event.preventDefault();

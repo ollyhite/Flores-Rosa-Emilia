@@ -1,9 +1,3 @@
-// const changeLang = (languageCode) => {
-//         event.preventDefault();
-//        console.log(languageCode);
-//        document.documentElement.setAttribute("lang", languageCode);
-//       };
-
 //top btn
 mybutton = document.getElementById("topBtn");
 
@@ -26,14 +20,11 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-//cart num
+//update cart num when hit add cart btn
 
 const carNum = localStorage.getItem("numbersOfList");
-// console.log(carNum);
 const carNumEl = document.getElementById("lblCartCount");
 const addBtn = document.getElementsByClassName("addcart-btn");
-// const val = parseInt(carNumEl.innerHTML);
-// const quantity = document.querySelector('.number-select').value;
 
 if (!carNum || carNum === 0 || carNum === "0") {
   localStorage.setItem("numbersOfList", 0);
