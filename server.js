@@ -6,7 +6,8 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const i18n = require("i18n-express");
 
 const routes = require("./controllers");
-const sequelize = require("./config/connection");
+// const sequelize = require("./config/connection");
+const Sequelize = require("sequelize");
 const helpers = require("./utils/helpers");
 
 const app = express();
@@ -49,3 +50,21 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Now listening at http://localhost:${PORT}/`)
   );
 });
+
+sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection has been established successfully.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
